@@ -1,0 +1,32 @@
+<ng-container *ngIf="inhabitant">
+  <mat-card>
+    <mat-card-title>{{ TableHeadersPropsToValue.get(TableHeadersProps.Name) | uppercase }}: {{ inhabitant.name }}
+    </mat-card-title>
+    <mat-card-subtitle>{{ TableHeadersPropsToValue.get(TableHeadersProps.Age) | uppercase }}: {{ inhabitant.age }}
+    </mat-card-subtitle>
+    <img [src]="inhabitant.thumbnail" alt="inhabitant avavtar" mat-card-md-image />
+    <mat-card-content>
+      <div>{{ TableHeadersPropsToValue.get(TableHeadersProps.Weight) | uppercase }}: {{ inhabitant.weight }}</div>
+      <div>{{ TableHeadersPropsToValue.get(TableHeadersProps.Height) | uppercase }}: {{ inhabitant.height }}</div>
+      <div class="color-wrapper">{{ TableHeadersPropsToValue.get(TableHeadersProps.HairColor) | uppercase }}:
+        {{ inhabitant.hair_color }}
+        <div
+          class="color-block"
+          [ngStyle]="{'background-color': ColorsValues[inhabitant.hair_color]}"></div>
+      </div>
+      <mat-chip-list aria-label="Professions selection"
+        *ngIf="inhabitant.professions && inhabitant.professions.length">
+        {{ TableHeadersPropsToValue.get(TableHeadersProps.Professions) | uppercase }}:
+        <ng-container *ngFor="let profession of inhabitant.professions">
+          <mat-chip color="primary" selected>{{ profession }}</mat-chip>
+        </ng-container>
+      </mat-chip-list>
+      <mat-chip-list aria-label="Friends selection" *ngIf="inhabitant.friends && inhabitant.friends.length">
+        {{ TableHeadersPropsToValue.get(TableHeadersProps.Friends) | uppercase }}:
+        <ng-container *ngFor="let friend of inhabitant.friends">
+          <mat-chip color="accent" selected>{{ friend }}</mat-chip>
+        </ng-container>
+      </mat-chip-list>
+    </mat-card-content>
+  </mat-card>
+</ng-container>

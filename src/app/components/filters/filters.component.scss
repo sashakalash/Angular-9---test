@@ -1,0 +1,49 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .filter-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    &.selects {
+      justify-content: space-around;
+
+      mat-form-field {
+        width: 50%;
+      }
+    }
+
+    .input-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .inputs {
+        display: flex;
+
+        mat-form-field {
+          max-width: 100px;
+        }
+      }
+    }
+  }
+
+  mat-form-field {
+    margin: 10px;
+  }
+
+  mat-option ::ng-deep .mat-option-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .color-block {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  }
+}

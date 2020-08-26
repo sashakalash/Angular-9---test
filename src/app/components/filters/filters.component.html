@@ -1,0 +1,81 @@
+<form [formGroup]="form">
+  <div class="filter-block inputs">
+    <mat-form-field>
+      <mat-label>Поиск по имени</mat-label>
+      <input matInput placeholder="Начните вводить имя" formControlName="name">
+    </mat-form-field>
+
+    <div class="input-wrapper">
+      <label for="age">Поиск по возрасту</label>
+      <div class="inputs">
+        <mat-form-field>
+          <input matInput placeholder="От" type="number" formControlName="ageFrom" id="age">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="До" type="number" formControlName="ageTo" id="age">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="input-wrapper">
+      <label for="height">Поиск по высоте</label>
+      <div class="inputs">
+        <mat-form-field>
+          <input matInput placeholder="От" type="number" formControlName="heightTo" id="height">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="До" type="number" formControlName="heightTo" id="height">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="input-wrapper">
+      <label for="age">Поиск по ширине</label>
+      <div class="inputs">
+        <mat-form-field>
+          <input matInput placeholder="От" type="number" formControlName="weightFrom" id="weight">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="До" type="number" formControlName="weightTo" id="weight">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Поиск по друзьям</mat-label>
+      <input matInput placeholder="Начните вводить имя друга" formControlName="friends">
+    </mat-form-field>
+
+  </div>
+  <div class="filter-block selects">
+    <mat-form-field>
+      <mat-label>Поиск по цвету волос</mat-label>
+      <mat-select formControlName="colors" multiple>
+        <mat-select-trigger>
+          {{form?.controls.colors?.value ? form?.controls.colors?.value.slice(0, 6)  : ''}}
+          <span *ngIf="form?.controls.colors?.value?.length > 7">
+            (+ еще {{form?.controls.colors?.value.length - 7}})
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let color of colorList" [value]="color">
+          {{ color }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Поиск по профессиям</mat-label>
+      <mat-select formControlName="professions" multiple>
+        <mat-select-trigger>
+          {{form?.controls.professions?.value ? form.controls.professions.value.slice(0, 6) : ''}}
+          <span *ngIf="form?.controls.professions?.value?.length > 7">
+            (+ еще {{form.controls.professions.value.length - 7}})
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let profession of professionList" [value]="profession">
+          {{ profession }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>

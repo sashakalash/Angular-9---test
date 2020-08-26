@@ -1,0 +1,29 @@
+table {
+  width: 100%;
+
+  tr.row-data {
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(50%, 50%, 50%, .3);
+    }
+  }
+
+  .avatar-pic {
+    width: 30px;
+    height: 40px;
+  }
+
+  .color-block {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+}
+
+.paginator-wrapper {
+  display: flex;
+
+  mat-paginator {
+    margin: auto;
+  }
+}
